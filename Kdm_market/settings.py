@@ -132,15 +132,3 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
 }
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',  # или IsAuthenticated, если нужна авторизация
-    ]
-}
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.simplejwt.authentication.JWTAuthentication',  # или IsAuthenticated, если нужна авторизация
-    ),
-}

@@ -4,8 +4,8 @@ from .views import  ProductViewSet, CategoryViewSet, ReviewViewSet,BrandReviewSe
 router = DefaultRouter()
 
 router.register(r'products',ProductViewSet,basename='product')
-router.register(r'categories',ProductViewSet,basename='category')
-router.register(r'reviews',ProductViewSet,basename='review')
-router.register(r'brands',ProductViewSet,basename='brand')
+router.register(r'categories',CategoryViewSet,basename='category')
+router.register(r'reviews',ReviewViewSet,basename='review')
+router.register(r'brands',BrandReviewSet,basename='brand')
 
 urlpatterns = router.urls
