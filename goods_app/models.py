@@ -14,7 +14,7 @@ User = get_user_model()
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True, verbose_name=_('Категория'))
     slug = models.SlugField(unique=True, verbose_name=_('URL'))
-    image = models.ImageField(upload_to='categories/', verbose_name=_('Изображение категория'))
+    image = models.ImageField(upload_to='categories/', verbose_name=_('Изображение категория'), null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -83,7 +83,7 @@ def clear_cache_final_price(sender, instance, **kwargs):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='product_images/')
+    image = models.ImageField(upload_to='product_images/', null=True, blank=True)
 
     def __str__(self):
         return f'Изображение {self.product.name}'
