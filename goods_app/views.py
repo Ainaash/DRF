@@ -58,7 +58,7 @@ from drf_spectacular.types import OpenApiTypes
         summary='Удаление продукта',
         description='Описание удаление продукта',
         responses={
-            204: None,
+            204: "Успешное удаление",
             400: 'Bad request',
             404: 'Not found',
         }
@@ -68,13 +68,16 @@ class ProductViewSet(viewsets.ModelViewSet):
    queryset=Product.objects.all()
    serializer_class=ProductSerializer
 
+
 class CategoryViewSet(viewsets.ModelViewSet):
    queryset=Category.objects.all()
    serializer_class=CategorySerializer
 
+
 class ReviewViewSet(viewsets.ModelViewSet):
    queryset=Review.objects.all()
    serializer_class=ReviewSerializer
+
 
 class BrandReviewSet(viewsets.ModelViewSet):
    queryset=Brand.objects.all()

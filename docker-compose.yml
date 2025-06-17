@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: kdmarket
+      POSTGRES_USER: kdmarket
+      POSTGRES_PASSWORD: kdmarket
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend_network
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: .
+    image: kdmarket:latest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - backend_network
+
+volumes:
+  postgres_data:
+
+networks:
+  backend_network:
